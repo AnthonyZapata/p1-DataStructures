@@ -73,21 +73,21 @@ public class P1andP2<E> extends AbstractIntersectionFinder<E> implements Interse
 //	}
 
 	
-//	public MySet<E> intersectSets(MySet<E> t) throws FileNotFoundException {
-//		MySet<E> megaSet = t;
-//		for(int x = 0; x < t.size(); x++) {
-//			
-//			for(int j= 0; j < Part1Main.m;j++) {
-//				Set1<Integer> dummyArr = Part1Main.jFileToSet(j);
-//				for(int y = 0; y < dummyArr.size(); y++) {
-//					if(!(dummyArr.toArray()[y].equals(t.toArray()[x]))) {
-//						megaSet.remove((E)t.toArray()[x]);
-//					}
-//				}
-//			}
-//		}
-		// TODO Auto-generated method stub
-		return (MySet<E>) megaSet;
+	public MySet<E> intersectSets(MySet<E>[] t) throws FileNotFoundException {
+		MySet<E>[] megaSet = t;
+		for(int x = 0; x < t.length; x++) {
+			
+			for(int j= 0; j < Part1Main.m;j++) {
+				Set1<Integer> dummyArr = Part1Main.jFileToSet(j);
+				for(int y = 0; y < dummyArr.size(); y++) {
+					if(!(dummyArr.toArray()[y].equals(t[x]))) {
+						megaSet.remove((E) t[x]);
+					}
+				}
+			}
+		}
+
+		return megaSet;
 	}
 
 }

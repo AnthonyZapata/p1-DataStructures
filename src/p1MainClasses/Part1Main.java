@@ -1,6 +1,7 @@
 package p1MainClasses;
 
 import dataGenerator.DataReader;
+import interfaces.MySet;
 import mySetImplementations.Set1;
 import setIntersectionFinders.P1andP2;
 
@@ -92,9 +93,10 @@ public class Part1Main {
 		
 		return fileContent;
 	}
+	//changed to MySet for testing
 	
-	public static Set1<Integer> createMegaSet() throws FileNotFoundException {
-		Set1<Integer> fileContent = new Set1<>(); 
+	public static MySet<Integer> createMegaSet() throws FileNotFoundException {
+		MySet<Integer> fileContent = new Set1<>(); 
 		for(int j = 0; j<m;j++) {
 			String filename = "J_" + j + ".txt"; 
 			Scanner inputFile = new Scanner(new File("ArrayHolder", filename)); 
