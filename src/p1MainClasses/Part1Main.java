@@ -4,6 +4,7 @@ import dataGenerator.DataReader;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Part1Main {
@@ -25,14 +26,15 @@ public class Part1Main {
 		parameters.close();
 		
 		//Generates files FIJ
-		
+		//p1();
 		FilesGeneratorMain.main(args);
+		
 	
 		//reads data from files fij
 		
 		DataReader dataReader = new DataReader();
 		data = (Integer[][][]) dataReader.readDataFiles();
-		
+		p1();
 		printArray((Integer[])data[1][1]);
 		
 	}
@@ -49,23 +51,28 @@ public class Part1Main {
 		System.out.println(); 
 	}
 	
-	public Integer[][] p1p2Tester(Integer[] data){
-//		Integer[] set = new Integer[m][n];
-		Integer[][] set = new Integer[m][n];
-		for(int j=0; j<m; j++){
-			for(int i=0; i<n; i++){
-				set[j][i] = getDataElement(i,j);
+	public static String p1() throws FileNotFoundException{
+		for(int j = 0; j<m; j++) {
+			//crea J files
+			String fileName = "J_" + j +".txt"; 	
+			PrintWriter out = new PrintWriter(new File("ArrayHolder", fileName));
+			//para cada J file, add todas las k en i
+			for(int i = 0; i<n; i++) {	
+				for (int k=0; k<data[i][j].length; k++)
+					out.println(data[i][j][k]);
+				
+				
 			}
+			out.close();
 		}
 		
-//		for(int j=0; j<m;j++){
-//			for(int i=0; i<n; i++){
-//				
-//			}
-//		}
 		
 		
+		return "test finish";
 	}
+
+		
+	
 	
 	
 }
