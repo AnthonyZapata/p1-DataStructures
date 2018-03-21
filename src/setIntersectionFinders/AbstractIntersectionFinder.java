@@ -12,15 +12,6 @@ implements IntersectionFinder<E> {
 	public String getName() { 
 		return name; 
 	}
-	
-	public class p1p2{
-		
-	}
-	public class p3{
-		
-	}
-	public class p4{
-		
-	}
+
 	
 }

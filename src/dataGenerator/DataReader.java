@@ -59,7 +59,7 @@ public class DataReader {
 			}
 	}
 	
-	private void printArray(Integer[] numbers) {
+	public void printArray(Integer[] numbers) {
 		for (int i=0; i<numbers.length; i++) 
 			System.out.print(numbers[i] + "  "); 
 		System.out.println(); 
