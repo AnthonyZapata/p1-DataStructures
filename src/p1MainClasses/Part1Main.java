@@ -1,10 +1,13 @@
 package p1MainClasses;
 
 import dataGenerator.DataReader;
+import mySetImplementations.Set1;
+import setIntersectionFinders.P1andP2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Part1Main {
@@ -34,8 +37,12 @@ public class Part1Main {
 		
 		DataReader dataReader = new DataReader();
 		data = (Integer[][][]) dataReader.readDataFiles();
-		p1();
-		printArray((Integer[])data[1][1]);
+		System.out.println(p1());
+		
+		
+		//System.out.println(jFileToArray(1));
+		
+		
 		
 	}
 	
@@ -52,6 +59,13 @@ public class Part1Main {
 	}
 	
 	public static String p1() throws FileNotFoundException{
+		P1andP2<Integer> p1p2 = new P1andP2<Integer>("Metodo1");
+		
+		
+		return p1p2.p1method();
+	}
+	
+	public static void createJFiles() throws FileNotFoundException {
 		for(int j = 0; j<m; j++) {
 			//crea J files
 			String fileName = "J_" + j +".txt"; 	
@@ -60,15 +74,41 @@ public class Part1Main {
 			for(int i = 0; i<n; i++) {	
 				for (int k=0; k<data[i][j].length; k++)
 					out.println(data[i][j][k]);
-				
-				
 			}
 			out.close();
+		}
+	}
+	
+
+	public static Set1<Integer> jFileToSet(int j) throws FileNotFoundException {
+		
+		
+		String filename = "J_" + j + ".txt"; 
+		Scanner inputFile = new Scanner(new File("ArrayHolder", filename)); 
+		Set1<Integer> fileContent = new Set1<>(); 
+		while (inputFile.hasNext())
+			fileContent.add(inputFile.nextInt());
+		inputFile.close();
+		
+		return fileContent;
+	}
+	
+	public static Set1<Integer> createMegaSet() throws FileNotFoundException {
+		Set1<Integer> fileContent = new Set1<>(); 
+		for(int j = 0; j<m;j++) {
+			String filename = "J_" + j + ".txt"; 
+			Scanner inputFile = new Scanner(new File("ArrayHolder", filename)); 
+			
+			while (inputFile.hasNext())
+				fileContent.add(inputFile.nextInt());
+			
+			inputFile.close();
+		
 		}
 		
 		
 		
-		return "test finish";
+		return fileContent;
 	}
 
 		
