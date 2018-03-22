@@ -17,7 +17,7 @@ public class Part1Main {
 	
 	public static int n;
 	public static int m;
-	static Object[][][] data;
+	public static Object[][][] data;
 	public static int setType;
 	
 	public static void main(String[] args) throws FileNotFoundException{
@@ -137,6 +137,8 @@ public class Part1Main {
 	
 	}
 	//changed to MySet for testing
+	
+
 	
 	public static MySet<Integer> createMegaSet() throws FileNotFoundException {
 		MySet<Integer> fileContent;
