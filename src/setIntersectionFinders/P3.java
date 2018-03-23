@@ -26,7 +26,7 @@ public class P3 extends AbstractIntersectionFinder implements IntersectionFinder
 	
 	
 	public static MySet[] createMegaSetP3(){
-		MySet[] t = new MySet[Part1Main.m];
+		MySet<Integer>[] t = new MySet[Part1Main.m];
 		
 		for(int j = 0; j<Part1Main.m;j++) {
 			MySet set = new Set2();
@@ -56,11 +56,10 @@ public class P3 extends AbstractIntersectionFinder implements IntersectionFinder
 		//converts MySet[] into a global array for sorting
 		ArrayList globalSet = new ArrayList();
 		for(int j =0; j<Part1Main.m;j++) {
-			
-			while(t[j]..iterator().hasNext()) {
-				globalSet.add(t[j].iterator().next());
+			Object[] tArray = t[j].toArray();
+			for(int i=0;i<tArray.length;i++) {
+				globalSet.add((Integer) tArray[i]);
 			}
-			
 		}
 		Collections.sort(globalSet);
 		//output set

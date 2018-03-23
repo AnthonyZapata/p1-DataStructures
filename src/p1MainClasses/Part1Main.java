@@ -6,6 +6,7 @@ import mySetImplementations.Set1;
 import mySetImplementations.Set2;
 import setIntersectionFinders.P1andP2;
 import setIntersectionFinders.P3;
+import setIntersectionFinders.P4;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -44,6 +45,7 @@ public class Part1Main {
 		System.out.println(p1());
 		System.out.println(p2());
 		System.out.println(p3());
+		System.out.println(p4());
 		
 		//System.out.println(jFileToArray(1));
 		
@@ -91,6 +93,11 @@ public class Part1Main {
 		P3 p3 = new P3("3");
 		
 		return p3.p3method();
+	}
+	public static String p4() throws FileNotFoundException {
+		P4 p4 = new P4("4");
+		
+		return p4.p4method();
 	}
 	
 	public static void createJFiles() throws FileNotFoundException {
