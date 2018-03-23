@@ -23,32 +23,45 @@ public class Part1Main {
 	public static int setType;
 	
 	public static void main(String[] args) throws FileNotFoundException{
-		
-		
-		
-	
+
+
+
+
 		Scanner parameters = new Scanner(new File("inputFiles" , "parameters.txt")); 
 		// the values of n and m shall be read from file: "inputFiles/parameters.txt". 
 		n = parameters.nextInt(); 
 		m = parameters.nextInt();
 		parameters.close();
 		
-		//Generates files FIJ
-		//p1();
 		FilesGeneratorMain.main(args);
-		type(args);
-	
-		//reads data from files fij
 		
+		
+
+
 		DataReader dataReader = new DataReader();
 		data = dataReader.readDataFiles();
-		System.out.println(p1());
-		System.out.println(p2());
-		System.out.println(p3());
-		System.out.println(p4());
 		
-		//System.out.println(jFileToArray(1));
-		
+		if(args.length>0) {
+			if(args[0].equals("1")) {
+				System.out.println(p1());
+			}
+			if(args[0].equals("2")) {
+				System.out.println(p2());
+			}
+			if(args[0].equals("3")) {
+				System.out.println(p3());
+			}
+			if(args[0].equals("4")) {
+				System.out.println(p4());
+			}
+
+		}
+		else if(args.length==0) {
+			System.out.println(p1());
+			System.out.println(p2());
+			System.out.println(p3());
+			System.out.println(p4());
+		}
 		
 		
 	}
@@ -69,12 +82,7 @@ public class Part1Main {
 	}
 	
 	
-	
-	public static void printArray(Integer[] numbers) {
-		for (int i=0; i<numbers.length; i++) 
-			System.out.print(numbers[i] + "  "); 
-		System.out.println(); 
-	}
+
 	
 	public static String p1() throws FileNotFoundException{
 		P1andP2<Integer> p1p2 = new P1andP2<Integer>("1");
@@ -96,7 +104,6 @@ public class Part1Main {
 	}
 	public static String p4() throws FileNotFoundException {
 		P4 p4 = new P4("4");
-		
 		return p4.p4method();
 	}
 	
@@ -130,29 +137,10 @@ public class Part1Main {
 				for(int k = 0; k<data[i][j].length; k++) {
 					t[i].add(data[i][j][k]);
 				}
-			}
-			
-		}
-		
-		return t;
-		
-		
-		
-//		MySet<Integer>[] etr = new MySet<Integer>[m];
-//		for(int j = 0; j<m; j++) {
-//			String filename = "J_" + j + ".txt"; 
-//			Scanner inputFile = new Scanner(new File("ArrayHolder", filename)); 
-//			MySet<Integer> fileContent = new Set1<Integer>(); 
-//			while (inputFile.hasNext())
-//				fileContent.add(inputFile.nextInt());
-//			inputFile.close();
-//			etr[j]=fileContent;
-//		}
-//		
-	
+			}			
+		}		
+		return t;		
 	}
-	//changed to MySet for testing
-	
 
 	
 	public static MySet<Integer> createMegaSet() throws FileNotFoundException {
@@ -175,12 +163,7 @@ public class Part1Main {
 			
 			inputFile.close();
 		}
-	//	MySet<Integer>[] file = (MySet<Integer>[]) fileContent.toArray();
-		return fileContent;
-	}
 
-		
-	
-	
-	
+		return fileContent;
+	}	
 }
