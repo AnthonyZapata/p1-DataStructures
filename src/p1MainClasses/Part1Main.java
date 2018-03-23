@@ -33,7 +33,7 @@ public class Part1Main {
 		m = parameters.nextInt();
 		parameters.close();
 		
-		FilesGeneratorMain.main(args);
+		FilesGeneratorMain main;
 		
 		
 
@@ -61,6 +61,7 @@ public class Part1Main {
 			System.out.println(p2());
 			System.out.println(p3());
 			System.out.println(p4());
+			
 		}
 		
 		
