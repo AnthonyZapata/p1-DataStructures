@@ -13,7 +13,7 @@ import p1MainClasses.Part1Main;
 public class P3 extends AbstractIntersectionFinder implements IntersectionFinder{
 
 	public P3(String name) {
-		super("P3");
+		super("3");
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -66,6 +66,9 @@ public class P3 extends AbstractIntersectionFinder implements IntersectionFinder
 		MySet<Integer> finalSet = new Set2();
 		
 		//choose first value
+		if((int)globalSet.size()==0) {
+			return finalSet;
+		}
 		Integer e = (Integer)globalSet.get(0);
 		//counter
 		int c = 1;
