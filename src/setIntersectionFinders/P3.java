@@ -1,5 +1,6 @@
 package setIntersectionFinders;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,17 +17,31 @@ public class P3 extends AbstractIntersectionFinder implements IntersectionFinder
 		// TODO Auto-generated constructor stub
 	}
 	
-	public static MySet<Integer> createMegaSetP3(){
-		MySet t = new Set2();
+	
+	
+	public String p3method() throws FileNotFoundException {
+		MySet etr = intersectSets(createMegaSetP3());	
+	return etr.toString();
+}
+	
+	
+	public static MySet[] createMegaSetP3(){
+		MySet[] t = new MySet[Part1Main.m];
 		
-		for(int i = 0; i<Part1Main.data.length;i++) {
+		for(int j = 0; j<Part1Main.m;j++) {
+			MySet set = new Set2();
+		
 
-			for(int j = 0; j<Part1Main.data[i].length;j++) {
+			for(int i = 0; i<Part1Main.n;i++) {
+				
+
 				for(int k = 0; k<Part1Main.data[i][j].length; k++) {
-					t.add(Part1Main.data[i][j][k]);
+					set.add(Part1Main.data[i][j][k]);
+					
 				}
+				
 			}
-			
+			t[j]=set;
 		}
 		
 		return t;
@@ -37,18 +52,43 @@ public class P3 extends AbstractIntersectionFinder implements IntersectionFinder
 
 	@Override
 	public MySet intersectSets(MySet[] t) {
-		 MySet<Integer> megaSet = createMegaSetP3();
-		 ArrayList<Integer> mega = new ArrayList<Integer>();
-		 mega = (ArrayList<Integer>) createMegaSetP3(); 
-		 Collections.sort(mega);
-		 int c = 1;
-		 Collections.sort((Arraylist[])megaSet.toArray());
-		 
-		 
 		
+		//converts MySet[] into a global array for sorting
+		ArrayList globalSet = new ArrayList();
+		for(int j =0; j<Part1Main.m;j++) {
+			
+			while(t[j]..iterator().hasNext()) {
+				globalSet.add(t[j].iterator().next());
+			}
+			
+		}
+		Collections.sort(globalSet);
+		//output set
+		MySet<Integer> finalSet = new Set2();
 		
-		// TODO Auto-generated method stub
-		return null;
+		//choose first value
+		Integer e = (Integer)globalSet.get(0);
+		//counter
+		int c = 1;
+		for (int i=1; i<globalSet.size(); i++) {
+			Integer toCompare = (Integer)globalSet.get(i);
+			if(toCompare.equals(e)) {
+				c++;
+			}
+			else {
+				if(c==Part1Main.m) {
+					finalSet.add(e);
+				}
+				e = (Integer)globalSet.get(i);
+				c=1;
+			}
+		}
+
+		if(c==Part1Main.m) {
+			finalSet.add((Integer)globalSet.get(globalSet.size()-1));
+		}
+	
+		return finalSet;
 	}
 
 }

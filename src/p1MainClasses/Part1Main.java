@@ -5,6 +5,7 @@ import interfaces.MySet;
 import mySetImplementations.Set1;
 import mySetImplementations.Set2;
 import setIntersectionFinders.P1andP2;
+import setIntersectionFinders.P3;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,6 +43,7 @@ public class Part1Main {
 		data = dataReader.readDataFiles();
 		System.out.println(p1());
 		System.out.println(p2());
+		System.out.println(p3());
 		
 		//System.out.println(jFileToArray(1));
 		
@@ -83,6 +85,12 @@ public class Part1Main {
 		P1andP2<Integer> p1p2 = new P1andP2<Integer>("2");
 		
 		return p1p2.p2method();
+	}
+	
+	public static String p3() throws FileNotFoundException {
+		P3 p3 = new P3("3");
+		
+		return p3.p3method();
 	}
 	
 	public static void createJFiles() throws FileNotFoundException {

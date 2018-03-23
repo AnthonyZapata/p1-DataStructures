@@ -20,11 +20,13 @@ public class P1andP2<E> extends AbstractIntersectionFinder<Integer> implements I
 	}
 	
 	public String p1method() throws FileNotFoundException {
+		Part1Main.setType=1;
 			MySet<Integer> etr = intersectSets(Part1Main.mySetArrayCreator());	
 		return etr.toString();
 	}
 	
 	public String p2method() throws FileNotFoundException {
+		Part1Main.setType=2;
 		   MySet<Integer> etr = intersectSets(Part1Main.mySetArrayCreator());	
 		return etr.toString();
 	}
